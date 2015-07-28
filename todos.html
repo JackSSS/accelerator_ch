@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JACK'S TODOS</title>
+        <style type="text/css">
+            body {
+               background-image: url("http://buythesky.com.au/App_Themes/RFDS/img/template/background-video-poster.jpg");
+               background-size: cover;
+               background-attachment: fixed;
+               font-family: Verdana;
+               font-size: 1.5em;
+               text-align: center;
+               color: #eeeeee;
+            }
+
+            button {
+                font-family: Verdana;
+                padding: 0.3em;
+                color: #eeeeee;
+                font-size: .5em;
+                border: 1px solid #003366;
+                border-radius: .3em;
+                background-color: rgba(0, 0, 0, 0.35);
+                width: 6em;
+            }
+
+           button:hover {
+                color: #fff538;
+            } 
+    
+            div {
+                border-radius: 0.1em;
+                background-color: rgba(0, 0, 0, 0.25);
+                margin-top: 3em;
+                margin-left: auto;
+                margin-right: auto;
+                width: 22em;
+                text-align: left;
+            }
+
+            li{
+                margin-left: .7em;
+            }
+
+            li:hover{
+                color: orange;
+            }
+            </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+                $("button").click(function(){
+                var item = $("#item").val();
+                if (item.length !== 0){
+                    // Adds item to TODO LIST
+                    $("ol").append('<li>' + item + '</li>');
+                    $("#todo")[0].reset();
+                    $("li").click(function(){
+                    // Removes item from TODO LIST
+                    $(this).remove();
+            　　　　　});}
+        　　　　　return false;
+　　　　　　　　　　});
+　　　　　　　　　　}); 
+        </script>
+    </head>
+    <body>
+        <h1>TODO LIST</h1>
+        <form id="todo">
+        <input type="text" id="item"/>
+        <button>Add Item</button>
+        </form>
+        <div class="items">
+            <ol>
+            </ol>
+        </div>
+    </body>
+</html>
