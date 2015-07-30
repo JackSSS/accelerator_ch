@@ -23,8 +23,7 @@ class Library(object):
 
     def shelf_num(self):
         """List number of shelves"""
-        print("This library contains {num} shelves."
-                .format(num=str(len(self.lib))))
+        print(u"This library contains " + str(len(self.lib)) + " shelves.")
 
 
 class Shelf(Library):
@@ -49,9 +48,9 @@ class Book(Shelf):
 
     def add_book(self):
         """Add book to shelf"""
-        user_book = raw_input("Create a book name: ")
-        shelf_choice = raw_input("Choose a shelf to place {newbook} (sun, rain, or snow): "
-                                               .format(newbook=user_book))
+        user_book = raw_input(u"Create a book name: ")
+        shelf_choice = raw_input(u"Choose a shelf to place '" +
+                                 user_book + "' (sun, rain, or snow): ")
         self.lib[shelf_choice].append(user_book)
         print(self.lib[shelf_choice])
 
@@ -59,9 +58,9 @@ class Book(Shelf):
         """Remove book from shelf"""
         for s, b in self.lib.iteritems():
             print s, b
-        user_book = raw_input("Type a book name to remove: ")
-        shelf_choice = raw_input("From which shelf is the book '{delbook}: sun, rain, or snow? "
-                                              .format(delbook=user_book))
+        user_book = raw_input(u"Type a book name to remove: ")
+        shelf_choice = raw_input(u"From which shelf is the book '" +
+                                 user_book + "': sun, rain, or snow? ")
         self.lib[shelf_choice].remove(user_book)
         print(self.lib[shelf_choice])
 
