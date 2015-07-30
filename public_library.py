@@ -27,8 +27,6 @@ class Library(object):
 
 
 class Shelf(Library):
-    def __init__(self):
-        super(Shelf, self).__init__()
 
     def shelf_books(self):
         """Report books on shelf"""
@@ -37,8 +35,6 @@ class Shelf(Library):
 
 
 class Book(Shelf):
-    def __init__(self):
-        super(Book, self).__init__()
 
     def report_books(self):
         """ Reports all books in Library."""
