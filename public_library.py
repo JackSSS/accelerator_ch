@@ -10,7 +10,6 @@ showing it works) is all that is needed.
 
 
 class Library(object):
-    """docstring for Library"""
     def __init__(self):
         self.books = [["four", "six", "five"], ["seven", "eight", "9"],
                       ["10", "11", "12"]]
@@ -18,46 +17,51 @@ class Library(object):
                     self.books[2]}
 
     def shelf_name(self):
+        """List distinctive shelves."""
         for i in self.lib.iterkeys():
             print(i)
 
     def shelf_num(self):
-        print(u"This library contains " + str(len(self.lib)) + " shelves.")
+        """List number of shelves"""
+        print("This library contains {num} shelves."
+                .format(num=str(len(self.lib))))
 
 
 class Shelf(Library):
-    """docstring for Shelf"""
     def __init__(self):
         super(Shelf, self).__init__()
 
     def shelf_books(self):
+        """Report books on shelf"""
         for s, b in self.lib.iteritems():
             print s, b
 
 
 class Book(Shelf):
-    """docstring for Book"""
     def __init__(self):
         super(Book, self).__init__()
 
     def report_books(self):
+        """ Reports all books in Library."""
         for s, b in self.lib.iteritems():
             for book in b:
                 print book
 
     def add_book(self):
-        user_book = raw_input(u"Create a book name: ")
-        shelf_choice = raw_input(u"Choose a shelf to place '" +
-                                 user_book + "' (sun, rain, or snow): ")
+        """Add book to shelf"""
+        user_book = raw_input("Create a book name: ")
+        shelf_choice = raw_input("Choose a shelf to place {newbook} (sun, rain, or snow): "
+                                               .format(newbook=user_book))
         self.lib[shelf_choice].append(user_book)
         print(self.lib[shelf_choice])
 
     def remove_book(self):
+        """Remove book from shelf"""
         for s, b in self.lib.iteritems():
             print s, b
-        user_book = raw_input(u"Type a book name to remove: ")
-        shelf_choice = raw_input(u"From which shelf is the book '" +
-                                 user_book + "': sun, rain, or snow?")
+        user_book = raw_input("Type a book name to remove: ")
+        shelf_choice = raw_input("From which shelf is the book '{delbook}: sun, rain, or snow? "
+                                              .format(delbook=user_book))
         self.lib[shelf_choice].remove(user_book)
         print(self.lib[shelf_choice])
 
@@ -72,7 +76,7 @@ if __name__ == '__main__':
     x.shelf_num()
     # Report books on shelf
     x.shelf_books()
-    # Add book(s) to shelf
+    # Add book to shelf
     x.add_book()
-    # Remove book(s) from shelf
+    # Remove book from shelf
     x.remove_book()
